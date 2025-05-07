@@ -38,7 +38,7 @@ public class EncryptionService {
             
             byte[] combined = combineIVAndEncryptedText(iv, encrypted);
             
-            // Step 5: Convert to Base64 string
+            // Convert to Base64 string
             return Base64.getEncoder().encodeToString(combined);
         } catch (Exception ex) {
             throw new RuntimeException("Error encrypting", ex);
