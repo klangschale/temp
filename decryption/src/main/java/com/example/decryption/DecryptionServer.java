@@ -8,7 +8,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 public class DecryptionServer {
     public static void main(String[] args) {
-        System.setProperty("spring.config.name", "decryption-server");
         SpringApplication.run(DecryptionServer.class, args);
     }
 }
