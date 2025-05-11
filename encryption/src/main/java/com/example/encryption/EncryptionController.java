@@ -24,4 +24,9 @@ public class EncryptionController {
                                  .body("Encryption failed. Please try again.");
         }
     }
+
+    @PostMapping("/encrypt")
+    public ResponseEntity<?> encryptPost(@RequestParam String cleartext) {
+        return encrypt(cleartext);
+    }
 }

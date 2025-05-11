@@ -23,7 +23,7 @@ public class WebController {
     }
 
     @PostMapping("/submit")
-    public String handleForm(@RequestParam String text,
+    public String handleForm(@RequestParam("cleartext") String text,
                              @RequestParam String action,
                              Model model) {
         String result = webService.process(text, action);

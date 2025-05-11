@@ -31,5 +31,10 @@ public class DecryptionController {
                     .body("Decryption failed: " + ex.getMessage());
         }
     }
+
+    @PostMapping("/decrypt")
+    public ResponseEntity<?> decryptPost(@RequestParam String ciphertext) {
+        return decrypt(ciphertext);
+    }
 }
 
