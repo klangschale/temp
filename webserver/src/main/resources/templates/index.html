@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Encrypt / Decrypt</title>
+</head>
+<body>
+<h2>Enter Text</h2>
+<form th:action="@{/submit}" method="post">
+    <input type="text" name="text" required/>
+    <select name="action">
+        <option value="encrypt">Encrypt</option>
+        <option value="decrypt">Decrypt</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

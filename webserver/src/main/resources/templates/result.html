@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+</head>
+<body>
+<h3>Action: <span th:text="${action}" /></h3>
+<p>Original: <span th:text="${originalText}" /></p>
+<p>Result: <span th:text="${resultText}" /></p>
+<a th:href="@{/}">Back</a>
+</body>
+</html>
