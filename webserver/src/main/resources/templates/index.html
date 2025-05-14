@@ -2,16 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Encrypt / Decrypt</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h2>Enter Text</h2>
-<form th:action="@{/submit}" method="post">
-    <input type="text" name="cleartext" required/>
-    <select name="action">
-        <option value="encrypt">Encrypt</option>
-        <option value="decrypt">Decrypt</option>
-    </select>
-    <button type="submit">Submit</button>
-</form>
+    <div class="container">
+        <h2>Text Encryption / Decryption</h2>
+        <form th:action="@{/submit}" method="post">
+            <div class="form-group">
+                <input type="text" name="cleartext" placeholder="Enter your text here..." required/>
+            </div>
+            <div class="form-group">
+                <select name="action">
+                    <option value="encrypt">Encrypt</option>
+                    <option value="decrypt">Decrypt</option>
+                </select>
+            </div>
+            <button type="submit">Process Text</button>
+        </form>
+    </div>
 </body>
 </html>
