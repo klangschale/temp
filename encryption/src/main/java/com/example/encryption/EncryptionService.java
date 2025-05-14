@@ -1,4 +1,4 @@
-package com.example.encryption_decryption_app.encryption;
+package com.example.encryption;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
