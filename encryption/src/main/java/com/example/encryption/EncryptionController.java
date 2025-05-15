@@ -1,4 +1,4 @@
-package com.example.encryption_decryption_app.encryption;
+package com.example.encryption;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,5 +23,10 @@ public class EncryptionController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                                  .body("Encryption failed. Please try again.");
         }
+    }
+
+    @PostMapping("/encrypt")
+    public ResponseEntity<?> encryptPost(@RequestParam String cleartext) {
+        return encrypt(cleartext);
     }
 }

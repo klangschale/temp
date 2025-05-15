@@ -1,4 +1,4 @@
-package com.example.encryption_decryption_app.decryption;
+package com.example.decryption;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +30,11 @@ public class DecryptionController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Decryption failed: " + ex.getMessage());
         }
+    }
+
+    @PostMapping("/decrypt")
+    public ResponseEntity<?> decryptPost(@RequestParam String ciphertext) {
+        return decrypt(ciphertext);
     }
 }
 
