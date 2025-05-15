@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h3>
+            <span class="action-badge" th:classappend="${action == 'encrypt' ? 'encrypt' : 'decrypt'}" 
+                  th:text="${action}"></span>
+        </h3>
+        <div class="result-item">
+            <div class="result-label">Original Text:</div>
+            <div class="result-value" th:text="${originalText}"></div>
+        </div>
+        <div class="result-item">
+            <div class="result-label">Result:</div>
+            <div class="result-value" th:text="${resultText}"></div>
+        </div>
+        <a th:href="@{/}" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>
