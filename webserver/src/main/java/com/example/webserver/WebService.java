@@ -15,7 +15,7 @@ public class WebService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public String process(String text, String action) {
-        String url = "http://localhost:8080/" + action;
+        String url = "http://gateway:8080/" + action;
 
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         String paramName = action.equals("decrypt") ? "ciphertext" : "cleartext";
