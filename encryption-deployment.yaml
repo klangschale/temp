@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: encryption
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: encryption
+  template:
+    metadata:
+      labels:
+        app: encryption
+    spec:
+      containers:
+        - name: encryption
+          image: europe-docker.pkg.dev/amazing-smile-460208-a6/registration-repo/encryption:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: ENCRYPTION_PASSPHRASE
+              value: "mySecretPassphrase"
+            - name: ENCRYPTION_SALT
+              value: "mySalt123"
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://registration:8761/eureka/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: encryption
+spec:
+  type: ClusterIP
+  selector:
+    app: encryption
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081

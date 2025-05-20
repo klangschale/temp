@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+        - name: webserver
+          image: europe-docker.pkg.dev/amazing-smile-460208-a6/registration-repo/webserver:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: GATEWAY_URL
+              value: http://gateway:8080
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://registration:8761/eureka/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  type: LoadBalancer
+  selector:
+    app: webserver
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
